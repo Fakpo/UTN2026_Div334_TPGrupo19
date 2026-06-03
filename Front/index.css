@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px #0000001a;
+    /* background-color: #000000; */
+    border: 1px ;
+}
+#icono-principal {
+    width: px;
+    height: 55px;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-optical-sizing: auto;
+    /* background-color: #161616; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
