@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//Frontend\css\main.css">
-    <script src="Frontend\Js\pages\productos.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/pages/carrito.js"></script>
     <title>TAKANA</title>
 </head>
 <body>
-    
+    <section class = "carrito">
+        <h2 class="titulo-carrito">Carrito de compras</h2>
+        <div id="contenedor-carrito">
+            <ul id="lista-carrito">
+                <!--Aca irian los productos que se vayan agrefando-->
+            </ul>
+        </div>
+        <div class="resumen-carrito">
+            <p id="subtotal">Subtotal: $0</p>
+            <p id="total">Total: $0</p>
+        </div>
+        <div class="botones-carrito">
+                <a href="./productos.html">
+                    <button id="seguir-comprando">Seguir comprando</button>
+                </a>
+                <a href="./ticket.html">
+                    <button id="finalizar-compra">Finalizar compra</button>
+                </a>
+        </div>
+    </section>
 </body>
 </html>
