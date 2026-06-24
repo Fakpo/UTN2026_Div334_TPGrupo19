@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//Frontend\css\main.css">
-    <script src="Frontend\Js\pages\productos.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/pages/ticket.js"></script>
     <title>TAKANA</title>
 </head>
 <body>
-    
+    <section class="Informacion-Compra">
+        <h2 class="titulo-ticket">Comprobante </h2>
+        <div class="informacion-cliente">
+            <p id="nombre-cliente"></p>
+            <p id="fecha-compra"></p>
+            <p id="hora-compra"></p>
+        </div>
+        <div id="contenedor-ticket">
+            <ul id="lista-ticket">
+                <!--Productos por agregar-->
+            </ul>
+        </div>
+        <div class="resumen-ticket">
+            <p id="subtotal">Subtotal: $0</p>
+            <p id="total">Total: $0</p>
+        </div>
+        <div class="botones-ticket">
+            <button id="descargar-pdf">Descargar PDF</button>
+            <button id="finalizar-compra">Finalizar</button>
+        </div>
+                
+    </section>
 </body>
 </html>
