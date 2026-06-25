@@ -1,0 +1,33 @@
+/* Variables globales */
+
+@font-face {
+    font-family: "Bebas";
+    src: url("../assets/fonts/BebasNeue-Regular.ttf");
+}
+
+:root {
+/* Colores */
+    --color-primario: #BE3144;
+    --color-secundario: #F05941;
+    --color-terciario: #872341;
+    --color-fondo: #22092C;
+    --color-texto: #ffffff;
+    --color-boton: #FF6F61;
+    --color-boton-hover: #E55B50;
+    --color-boton-texto: #FFFFFF;
+
+/* Tipografia */
+    --fuente-principal: "Bebas";
+
+/* Tamaños letras*/
+    --tamaño-base: 16px;
+    --tamaño-titulo: 2.5rem;
+    --tamaño-subtitulo: 1.5rem;
+    --tamaño-texto: 1rem;
+
+/* Bordes */
+    --radio-borde: 10px;
+
+/* Sombras */
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+}   
