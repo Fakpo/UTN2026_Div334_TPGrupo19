@@ -19,9 +19,12 @@ elemento.addEventListener("keydown",(event) => {
 //// PARA OBTENER PRODUCTOS
 app.get("/api/products", async(req,res) => {
     try {
-        const [rows] =await conecction.query("SELECT * FROM productos");
+        const [rows] = await conecction.query("SELECT * FROM productos");
+        // console.log(rows);
         
-        
+        res.status(200).json({
+            payload: rows
+        });
 
     } catch (error){
         console.log("che paso un ", error);
