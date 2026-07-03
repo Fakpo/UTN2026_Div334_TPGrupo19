@@ -5,33 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/pages/ticket.js"></script>
+    <link rel="icon" href="assets/images/icons/estrella.ico" type="image/x-icon">
+
     <title>TAKANA</title>
 </head>
 <body>
-    <section class="Informacion-Compra">
-        <h2 class="titulo-ticket">Comprobante </h2>
-        <div class="informacion-cliente">
-            <p id="nombre-cliente"></p>
-            <p id="fecha-compra"></p>
-            <p id="hora-compra"></p>
-        </div>
-        <div id="contenedor-ticket">
-            <ul id="lista-ticket">
-                <!--Productos por agregar-->
+    <header>
+        <img id="logo-header" src="../assets/images/logo/takana.png" alt="Logo TAKANA DRINKS">
+        <nav id="lista-opciones">
+            <ul>
+                <a href="../index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="carrito.html">Carrito</a>
             </ul>
-        </div>
-        <div class="resumen-ticket">
-            <p id="subtotal">Subtotal: $0</p>
-            <p id="total">Total: $0</p>
-        </div>
-        <div class="botones-ticket">
-            <button id="descargar-pdf">Descargar PDF</button>
-            <a href="./productos.html">
-                <button id="finalizar-compra">Finalizar</button>
-            </a>
-        </div>
-                
-    </section>
+        </nav>
+    </header>
+
+    <main>
+        <section class="Informacion-compra">
+            <h2 class="titulo-ticket">Comprobante</h2>
+
+            <div class="informacion-cliente">
+                <p id="nombre-cliente"></p>
+                <p id="fecha-compra"></p>
+                <p id="hora-compra"></p>
+            </div>
+
+            <div id="contenedor-ticket">
+                <ul id="lista-ticket">
+                    <!--Productos por agregar-->
+                </ul>
+            </div>
+            <div class="resumen-ticket">
+                <p id="subtotal">Subtotal: $0</p>
+                <p id="total">Total: $0</p>
+            </div>
+            <div class="botones-ticket">
+                <button class="btn-secundario" id="btn-descargar-pdf">Descargar PDF</button>
+                <button class="btn-primario" id="finalizar-compra">Finalizar</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 TAKANA DRINKS. Todos los derechos reservados.</p>
+    </footer>
+    <script src="../js/pages/ticket.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/pages/productos.js"></script>
+    <link rel="icon" href="assets/images/icons/estrella.ico" type="image/x-icon">
     <title>TAKANA</title>
 </head>
 <body>
@@ -13,73 +13,64 @@
         <img id="logo-header" src="../assets/images/logo/takana.png" alt="Logo TAKANA DRINKS">
         <nav id="lista-opciones">
             <ul>
-                <li>
-                <a href="index.html">Inicio</a>
+                <a href="../index.html">Inicio</a>
                 <a href="productos.html">Productos</a>
                 <a href="carrito.html">Carrito</a>
                 </li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <h2 class="separador">ELIGE CON QUE DISFRUTARAS HOY</h2>
+        <h2 class="separador">ELIGE CON QUE DISFRUTARAS ESTA NOCHE</h2>
+
         <div class="categoria-productos">
-            <button class="btn-principal">Bebidas</button>
-            <button class="btn-principal">Hielo</button>
+            <button class="btn-primario" id="btn-filtro-bebidas">Bebidas</button>
+            <button class="btn-secundario" id="btn-filtro-hielo">Hielo</button>
         </div>
+
         <section id="bebidas">
             <ul id="listado-bebidas">
                 <li class="li-bebidas">
-                    <img id="img-producto" src="../assets/images/productos/lataSmirnoff.png" alt="lataSmirnoff">
-                    <div>
-                        <h3 class="nombre-producto">Smirnoff</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <img class="img-producto" src="../assets/images/productos/lataSmirnoff.png" alt="lataSmirnoff">
+                    <h3 class="nombre-producto">Smirnoff</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
                 <li class="li-bebidas">
                     <img id="img-producto" src="../assets/images/productos/lataCocaCola.png" alt="lataCocaCola">
-                    <div>
-                        <h3 class="nombre-producto">Coca Cola</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <h3 class="nombre-producto">Coca Cola</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
                 <li class="li-bebidas">
                     <img id="img-producto" src="../assets/images/productos/lataMonster.png" alt="lataMonster">
-                    <div>
-                        <h3 class="nombre-producto">Monster</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <h3 class="nombre-producto">Monster</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
                 <li class="li-bebidas">
                     <img id="img-producto" src="../assets/images/productos/lataMonsterBlanca.png" alt="lataMonsterBlanca">
-                    <div>
-                        <h3 class="nombre-producto">Monster Blanca</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <h3 class="nombre-producto">Monster Blanca</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
                 <li class="li-bebidas">
                     <img id="img-producto" src="../assets/images/productos/lataSprite.png" alt="lataSprite">
-                    <div>
-                        <h3 class="nombre-producto">Sprite</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <h3 class="nombre-producto">Sprite</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
             </ul>
         </section>
-        <section class="listado-hielo">
-            <ul>
+
+        <section id="Hielo">
+            <ul id="listado-hielo">
                 <li class="li-hielo">
-                    <img id="img-producto" src="../assets/images/productos/bolsaHielo.png" alt="bolsaHielo">
-                    <div>
-                        <h3 class="nombre-producto">Bolsa de Hielo</h3>
-                        <p class="precio-producto">$100</p>
-                    </div>
-                    <button class="agregar-carrito">Agregar al carrito</button>
+                    <img class="img-producto" src="../assets/images/productos/bolsaHielo.png" alt="bolsaHielo">
+                    <h3 class="nombre-producto">Bolsa de Hielo</h3>
+                    <p class="precio-producto">$100</p>
+                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
                 </li>
             </ul>
         </section>
@@ -87,5 +78,6 @@
     <footer>
         <p>© 2026 TAKANA DRINKS. Todos los derechos reservados.</p>
     </footer>
+    <script src="../Js/pages/productos.js"></script>
 </body>
 </html>
