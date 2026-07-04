@@ -5,29 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/pages/carrito.js"></script>
-    <title>TAKANA</title>
+    <link rel="icon" href="assets/images/icons/estrella.ico" type="image/x-icon">
+    <title>TAKANA - Carrito</title>
 </head>
 <body>
-    <section class = "carrito">
-        <h2 class="titulo-carrito">Carrito de compras</h2>
-        <div id="contenedor-carrito">
-            <ul id="lista-carrito">
-                <!--Aca irian los productos que se vayan agrefando-->
+    <header>
+        <img id="logo-header" src="../assets/images/logo/takana.png" alt="Logo TAKANA DRINKS">
+        <nav id="lista-opciones">
+            <ul>
+                <a href="../index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="carrito.html">Carrito</a>
             </ul>
-        </div>
-        <div class="resumen-carrito">
-            <p id="subtotal">Subtotal: $0</p>
-            <p id="total">Total: $0</p>
-        </div>
-        <div class="botones-carrito">
-                <a href="./productos.html">
-                    <button id="seguir-comprando">Seguir comprando</button>
-                </a>
-                <a href="./ticket.html">
-                    <button id="finalizar-compra">Finalizar compra</button>
-                </a>
-        </div>
-    </section>
+        </nav>
+    </header>
+
+    <main>
+        <section class = "carrito">
+            <h2 class="titulo-carrito">Carrito de compras</h2>
+
+            <div id="contenedor-carrito">
+                <ul id="lista-carrito">
+                    <!-- Aca irian los productos que se vayan agrefando -->
+                </ul>
+            </div>
+
+            <div class="resumen-carrito">
+                <p id="subtotal">Subtotal: $0</p>
+                <p id="total">Total: $0</p>
+            </div>
+
+            <div class="botones-carrito">
+                <button class="btn-secundario" id="btn-seguir-comprando">Seguir comprando</button>
+                <button class="btn-primario" id="btn-finalizar-compra">Finalizar compra</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 TAKANA DRINKS. Todos los derechos reservados.</p>
+    </footer>
+    <script type="module" src="../Js/pages/carrito.js"></script>
 </body>
+
 </html>

@@ -11,10 +11,17 @@
     --color-secundario: #F05941;
     --color-terciario: #872341;
     --color-fondo: #22092C;
-    --color-texto: #ffffff;
-    --color-boton: #FF6F61;
-    --color-boton-hover: #E55B50;
-    --color-boton-texto: #FFFFFF;
+    --color-texto: #FFFFFF;
+
+/* Botones */
+    --color-btn-primario: #FF6F61;
+    --color-btn-primario-hover: #E55B50;
+    
+    --color-btn-secundario: transparent;
+    --color-btn-secundario-borde: #FF6F61;
+    --color-btn-secundario-texto: #FF6F61;
+    --color-btn-secundario-hover-bg: #FF6F61;
+    --color-btn-secundario-hover-texto: #FFFFFF;
 
 /* Tipografia */
     --fuente-principal: "Bebas";
