@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "nombre": "Smirnoff Ice",
+        "descripcion": "Bebida alcoholica con sabor a limón",
+        "precio": 1500,
+        "imagen": "../assets/images/productos/lataSmirnoff.png",
+        "categoria": "bebidas",
+        "activo": true
+    },
+    {
+        "id": 2,
+        "nombre": "Coca Cola",
+        "descripcion": "Gaseosa clásica 350ml",
+        "precio": 800,
+        "imagen": "../assets/images/productos/lataCocacola.png",
+        "categoria": "bebidas",
+        "activo": true
+    },
+    {
+        "id": 3,
+        "nombre": "Monster Energy",
+        "descripcion": "Bebida energizante 473ml",
+        "precio": 1200,
+        "imagen": "../assets/images/productos/lataMonster.png",
+        "categoria": "bebidas",
+        "activo": true
+    },
+    {
+        "id": 4,
+        "nombre": "Monster Blanca",
+        "descripcion": "Bebida energizante sabor mango 473ml",
+        "precio": 1200,
+        "imagen": "../assets/images/productos/lataMonsterBlanca.png",
+        "categoria": "bebidas",
+        "activo": true
+    },
+    {
+        "id": 5,
+        "nombre": "Sprite",
+        "descripcion": "Gaseosa lima limón 350ml",
+        "precio": 800,
+        "imagen": "../assets/images/productos/lataSprite.png",
+        "categoria": "bebidas",
+        "activo": true
+    },
+    {
+        "id": 6,
+        "nombre": "Bolsa de Hielo",
+        "descripcion": "Hielo en cubos 2kg",
+        "precio": 600,
+        "imagen": "../assets/images/productos/bolsaHielo.png",
+        "categoria": "hielo",
+        "activo": true
+    }
+]
