@@ -14,11 +14,15 @@ app.use(cors());
 
 app.use(loggerURL);
 
+app.use(express.json());
+
 /*
 elemento.addEventListener("keydown",(event) => {
     console.log("la tecla pulsada fue", event.key)});
 */
 // Endpoints 
+
+//get
 app.get("/" , (req,res) => {
     res.send("hola mundo desde express")
 });
@@ -49,7 +53,7 @@ app.get("/api/products/:id", async(req,res) => {
         console.log(rows);
 
         res.status(200).json({
-            payload: rows
+            payload: rows[0]
         });
 
     }catch(error){
@@ -57,10 +61,63 @@ app.get("/api/products/:id", async(req,res) => {
     }
 });
 
-// app.post("/api/users", async(req,res) => {
+// POST
+app.post("/api/products", async (req, res) => {
+    try {
+        console.log(req.body);
+        
+        const {nombre , imagen , categoria, precio} = req.body;
 
-// });
+        const sql = `INSERT INTO productos (nombre, imagen, categoria, precio) VALUES ( ? ,? , ? , ? )`;
+        
+        await conecction.query(sql, [nombre , imagen , categoria, precio]);
 
+        res.status(200).json({
+            message: "Producto creado con exito"
+        });
+    } catch (error) {
+        console.log("" , error);
+        
+    }
+});
+
+
+// DELETE   ( HACER BAJA LOGICA Y PONERLE ACTIVE EN 0)
+app.delete("/api/products/:id", async(req,res) => {
+    const { id } = req.params;
+
+    await conecction.query(sql, [id]);
+    const sql = "DELETE FROM productos WHERE id = ?"
+    res.status(200).json({
+        message: `producto con id: ${id} Eliminado`
+    });
+});
+
+// Update products ( Put)
+app.put("/api/products", async(req,res) =>{
+    try {
+        
+        const {id,nombre , imagen , categoria, precio, estadoActivo } = req.body;
+
+        const sql = "UPDATE productos SET nombre = ?, imagen = ?, categoria = ?, precio = ?, estadoActivo = ? WHERE id = ?"
+
+        await conecction.query(sql,[nombre,imagen,categoria,precio,,estadoActivo,id]);
+
+        res.status(200).json({
+            message: "Producto actualizado correctamente"
+        });
+
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+    
+});
+
+
+//listener
 app.listen(port, () => {
     console.log("servidor corriendo en el puerto", port);
 });
