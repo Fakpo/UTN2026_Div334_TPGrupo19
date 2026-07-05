@@ -18,6 +18,7 @@
                 <a href="carrito.html">Carrito</a>
             </ul>
         </nav>
+        <button class="btn-terciario btn-admin" onclick="window.location.href='/* RUTA LOCAL HOST */'">Admin</button>
     </header>
 
     <main>
@@ -46,6 +47,16 @@
         <p>© 2026 TAKANA DRINKS. Todos los derechos reservados.</p>
     </footer>
     <script type="module" src="../Js/pages/carrito.js"></script>
+
+    <div id="modal-confirmacion" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3>¿Confirmas tu compra?</h3>
+            <div class="modal-botones">
+                <button class="btn-primario" id="btn-confirmar-modal">Confirmar</button>
+                <button class="btn-secundario" id="btn-cancelar-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

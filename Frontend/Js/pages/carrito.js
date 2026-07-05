@@ -6,6 +6,9 @@ const pSubtotal = document.getElementById("subtotal");
 const pTotal = document.getElementById("total");
 const btnSeguir = document.getElementById("btn-seguir-comprando");
 const btnFinalizar = document.getElementById("btn-finalizar-compra");
+const modal = document.getElementById("modal-confirmacion");
+const btnConfirmar = document.getElementById("btn-confirmar-modal") 
+const btnCancelar = document.getElementById("btn-cancelar-modal") 
 
 //-------RENDER----------
 const renderizarCarrito = () => {
@@ -47,7 +50,7 @@ const renderizarCarrito = () => {
     // EVENTOS CANTIDAD
     document.querySelectorAll(".btn-cantidad").forEach((btn) => {
         btn.addEventListener("click", () => {
-            actualizarcantidad(Number(btn.dataset.id), btn.dataset.accion);
+            actualizarCantidad(Number(btn.dataset.id), btn.dataset.accion);
             renderizarCarrito();
         });
     });
@@ -60,12 +63,18 @@ const confirmarCompra = () =>{
         alert("Tu carrito esta vacio, debes agregar productos")
         return;
     }
-
-    const confirmo = confirm("Confirmas tu compra?");
-    if(confirmo){
-        window.location.href = "ticket.html";
-    }
+    modal.style.display = "flex";
 };
+
+btnConfirmar.addEventListener("click", () =>{
+    modal.style.display = "none";
+    window.location.href = "ticket.html";
+});
+
+btnCancelar.addEventListener("click",() => {
+    modal.style.display = "none";
+})
+
 
 //-----NAVEGACION-----
 

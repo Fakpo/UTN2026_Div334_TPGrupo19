@@ -56,6 +56,24 @@ body{
     color: var(--color-btn-secundario-hover-texto);
 }
 
+.btn-terciario{
+    padding: 12px 24px;
+    background-color: var(--color-btn-secundario);
+    color: var(--color-btn-secundario-hover-texto);
+    border: 2px solid var(--color-btn-secundario-borde);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    font-family: var(--fuente-principal);
+    font-size: var(--tamaño-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-terciario:hover{
+    background-color: #FFCF00;
+    color: var(--color-btn-secundario-hover-texto);
+}
+
 /* BIENVENIDA */
 .titulo{
     font-family: var(--fuente-principal);
@@ -98,6 +116,7 @@ body{
 header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
     box-shadow: var(--sombra);
     background-color: var(--color-primario);
@@ -125,6 +144,13 @@ a {
 
 a:hover{
     color: var(--color-terciario);
+}
+
+/* BOTON ADMIN */
+.btn-admin{
+    margin-left: auto;
+    font-size: var(--tamaño-texto);
+    padding: 10px 20px;
 }
 
 /* PRODUCTOS */
@@ -261,7 +287,8 @@ a:hover{
     border-radius: var(--radio-borde);
     padding: 16px 24px;
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -298,3 +325,32 @@ footer{
     text-align: center;
     padding: 8px;
 }
+
+/* MODAL CONFIRMAR COMPRA */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-secundario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background-color: var(--color-primario);
+    border-radius: var(--radio-borde);
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-botones{
+    display: flex;
+    gap: 40px;
+}
+

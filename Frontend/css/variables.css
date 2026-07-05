@@ -38,3 +38,10 @@
 /* Sombras */
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }   
+
+body.tema-claro {
+    --color-fondo: #F5F5F5;
+    --color-texto: #1a1a1a;
+    --color-primario: #E8A0B4;
+    --color-terciario: #D4607A;
+    }
