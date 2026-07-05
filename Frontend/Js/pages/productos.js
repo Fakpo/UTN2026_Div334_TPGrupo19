@@ -1,6 +1,6 @@
-import { agregarAlCarrito } from "../services/storage";
-import { fetchProductos } from "../services/api";
-import productosFallback from "../datos/productos.json" assert {type : "json"};
+import { agregarAlCarrito } from "../services/storage.js";
+import { fetchProductos } from "../services/api.js";
+
 
 //------ESTADO-------
 let todosLosProductos = [];
@@ -25,7 +25,9 @@ const cargaProductos = async () => {
     }catch (Error){
         //SI EL BACK AUN NO ESTA SE USA LOS HARCODEADO
         console.warn("Backend no disponible,")
-        todosLosProductos = productosFallback.filter((p) => p.activo);
+        const res = await fetch("../Js/datos/productos.json")
+        const fallback = await res.json()
+        todosLosProductos = fallback.filter((p) => p.activo);
     }
     renderizar();
 };
@@ -110,12 +112,13 @@ const mostrarCategoria = (categoria) => {
     renderizar();
 };
 
-btnBebidas.addEventListener("click" , () => mostrarCategoria("Bebidas"));
-btnHielo.addEventListener("click" , () => mostrarCategoria("Hielo"));
 
 //INIT
 
-Window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
+    btnBebidas.addEventListener("click" , () => mostrarCategoria("bebidas"));
+    btnHielo.addEventListener("click" , () => mostrarCategoria("hielo"));
+    
     mostrarCategoria("bebidas"); //Arranca mostrando las bebidas
     cargaProductos();
 })

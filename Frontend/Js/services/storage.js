@@ -1,7 +1,5 @@
 // -------- NOMBRE DEL CLIENTE ---------
 
-import { json } from "express";
-
 export const guardarNombre = (nombre) => {
     sessionStorage.setItem("nombreCliente", nombre);
 };
