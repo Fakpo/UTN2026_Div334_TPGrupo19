@@ -1,7 +1,7 @@
 import {obtenerCarrito,actualizarCantidad,eliminarDelCarrito} from "../services/storage.js";
 
 //-------ELEMENTOS DEL DOM----------
-const listarCarrito = document.getElementById("lista.carrito");
+const listarCarrito = document.getElementById("contenedor-carrito");
 const pSubtotal = document.getElementById("subtotal");
 const pTotal = document.getElementById("total");
 const btnSeguir = document.getElementById("btn-seguir-comprando");
@@ -47,7 +47,7 @@ const renderizarCarrito = () => {
     // EVENTOS CANTIDAD
     document.querySelectorAll(".btn-cantidad").forEach((btn) => {
         btn.addEventListener("click", () => {
-            actualziarcantidad(Number(btn.dataset.id), btn.dataset.accion);
+            actualizarcantidad(Number(btn.dataset.id), btn.dataset.accion);
             renderizarCarrito();
         });
     });

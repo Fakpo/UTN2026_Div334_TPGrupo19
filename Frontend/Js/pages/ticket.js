@@ -49,8 +49,8 @@ const registrar = async (subtotal) => {
     try{
         const carrito = obtenerCarrito();
         await registrarVenta({
-            nombre_cliente = nombre,
-            precio_total = subtotal,
+            nombre_cliente : nombre,
+            precio_total : subtotal,
             productos: carrito.map((p) =>({
                 id: p.id,
                 cantidad: p.cantidad,
@@ -58,7 +58,7 @@ const registrar = async (subtotal) => {
             }))
         });
     }catch (Error){
-        console.warn("No se pudo registrar el pago", error.message);
+        console.warn("No se pudo registrar el pago", Error.message);
     }
 };
 
@@ -74,7 +74,7 @@ btnFinalizar.addEventListener("click",() =>{
 });
 
 btnPDF.addEventListener("click", descargarPDF);
-
+ 
 //--INIT--
 window.addEventListener("DOMContentLoaded", async () =>{
     const subtotal = renderTicket();

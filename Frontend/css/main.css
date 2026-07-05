@@ -152,7 +152,8 @@ a:hover{
 .li-bebidas,
 .li-hielo{
     background-color: var(--color-primario);
-    width: 250px;
+    width: 220px;
+    max-width: 220px;
     padding: 15px;
     margin: 15px;
     border-radius: var(--radio-borde);
@@ -163,7 +164,7 @@ a:hover{
 
 .img-producto{
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: contain;
     border-radius: var(--radio-borde);
 }
