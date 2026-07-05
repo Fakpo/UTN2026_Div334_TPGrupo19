@@ -3,3 +3,4 @@ const loggerURL = (req,res,next)=> {
     next();
 };
 
+export default loggerURL;

@@ -2,8 +2,11 @@ import express from "express";
 import enviroments from "./src/api/config/enviroments.js";
 import conecction from "./src/api/database/db.js";
 import cors from "cors";
-import middlewares from "./src/api/middlewares/middlewares.js"
+
 import { Connection } from "mysql2";
+import loggerURL from './src/api/middlewares/middlewares.js';
+
+
 
 const app= express();
 const port = enviroments.port;
