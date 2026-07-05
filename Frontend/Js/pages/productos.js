@@ -20,7 +20,7 @@ const contenedorPaginacion = document.getElementById("paginacion");
 //-----------CARGA PRODUCTS---------
 const cargaProductos = async () => {
     try{
-        const data = await fetchProductos();
+        const data = await fetchProductos("http://localhost:300/api/products");
         todosLosProductos = data.productos;
     }catch (Error){
         //SI EL BACK AUN NO ESTA SE USA LOS HARCODEADO
