@@ -20,9 +20,42 @@ const validateId = (req,res,next) => {
         });
     }
     req.id = parseID;
+    next();
+};
+
+const categoriasValidas = ["Trago","Bebida"];
+const validateProduct = (req,res,next) =>  {
+    const {nombre, categoria, precio} = req.body;
+
+    const errores = {};
+
+    if (typeof name !== "string" || name.trim().length < 2) {
+        errores.push("El nombre debe tener almenos 2 caracteres");
+    };
+
+    if (typeof price !== "number" || name <= 0) {
+        errores.push("el precio no puede ser menor a 0");
+    };
+
+    // multer para imagenes
+
+    if (!categoriasValidas.includes(categoria)) {
+        errores.push("Categoria Invalida");
+    };
+
+    if (errores.leght() > 0){
+        return res.status(400).json({
+            message:"Datos invalidos", errores
+        });
+    }
+    next();
 };
 
 
 
 
-export default loggerURL;
+export {
+    loggerURL,
+    validateId,
+    validateProduct
+}
