@@ -17,7 +17,13 @@ body{
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: var(--fuente-principal);
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+main{
+    flex: 1;
 }
 
 /* BOTONES */
@@ -74,12 +80,75 @@ body{
     color: var(--color-btn-secundario-hover-texto);
 }
 
+.boton-tema{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(129, 47, 27);
+    --link-hover: rgb(94, 24, 79);
+}
+
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+.checkbox {
+    position: absolute;
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+    background-color: var(--light);  
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
 /* BIENVENIDA */
 .titulo{
     font-family: var(--fuente-principal);
     font-size: var(--tamaño-titulo);
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 .bienvenida{
@@ -95,6 +164,13 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 70px;
+}
+
+.mensaje-error{
+    color: var(--color-secundario);
+    font-size: var(--tamaño-texto);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #nombre-cliente{
@@ -168,15 +244,15 @@ a:hover{
     margin-bottom: 20px;
 }
 
-#listado-bebidas,
-#listado-hielo{
+#listado-tragos,
+#listado-extras{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.li-bebidas,
-.li-hielo{
+.li-tragos,
+.li-extras{
     background-color: var(--color-primario);
     width: 220px;
     max-width: 220px;
@@ -241,13 +317,14 @@ a:hover{
 }
 
 .item-carrito{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 140px 60px 50px;
     align-items: center;
+    gap: 35px;
     background-color: var(--color-terciario);
     border-radius: var(--radio-borde);
     padding: 10px 15px;
-    font-size: var(--tamaño-texto);
+    margin-bottom: 5px;
 }
 
 .resumen-carrito{
@@ -266,9 +343,28 @@ a:hover{
     margin-top: 10px;
 }
 
-/* TICket */
+.controles-cantidad{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
-.informacion-compra{
+.btn-cantidad,
+.btn-eliminar{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0; 
+}
+
+/* TICket */
+.seccion-ticket{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -277,22 +373,37 @@ a:hover{
     gap: 20px;
 }
 
-.titulo-ticket{
-    font-size: var(--tamaño-titulo);
-    text-align: center;
+.informacion-compra{
+    background-color: var(--color-primario);
+    border-radius: var(--radio-borde);
+    padding: 24px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: var(--tamaño-texto);
 }
 
 .informacion-cliente{
-    background-color: var(--color-primario);
-    border-radius: var(--radio-borde);
-    padding: 16px 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+#lista-ticket{
     width: 100%;
-    max-width: 700px;
-    height: auto;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    font-size: var(--tamaño-texto);
+    gap: 4px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid var(--color-terciario);
+
+}
+
+.titulo-ticket{
+    font-size: var(--tamaño-titulo);
+    text-align: center;
 }
 
 .item-ticket{
@@ -306,17 +417,14 @@ a:hover{
 .resumen-ticket{
     text-align: right;
     width: 100%;
-    max-width: 600px;
     font-size: var(--tamaño-subtitulo);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    padding-top: 10px;
+    border-top: 2px solid var(--color-terciario);
 }
 
 .botones-ticket{
     display: flex;
     gap: 16px;
-    margin-top: 10px;
 }
 
 /* PIE DE PAGINA */
@@ -324,13 +432,14 @@ footer{
     background-color: var(--color-terciario);
     text-align: center;
     padding: 8px;
+    margin-top: auto;
 }
 
 /* MODAL CONFIRMAR COMPRA */
 .modal-overlay{
     position: fixed;
     inset: 0;
-    background-color: var(--color-secundario);
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;

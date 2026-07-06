@@ -34,9 +34,9 @@ const renderizarCarrito = () => {
         li.innerHTML = `
             <span>${producto.nombre}</span>
             <span class="controles-cantidad">
-                <button class="btn-secundario btn-cantidad" data-id="${producto.id}" data-accion="restar">−</button>
+                <button class="btn-secundario btn-cantidad" data-id="${producto.id}" data-accion="restar"> − </button>
                 <span>${producto.cantidad}</span>
-                <button class="btn-secundario btn-cantidad" data-id="${producto.id}" data-accion="sumar">+</button>
+                <button class="btn-secundario btn-cantidad" data-id="${producto.id}" data-accion="sumar"> + </button>
             </span>
             <span>$${producto.precio * producto.cantidad}</span>
             <button class="btn-secundario btn-eliminar" data-id="${producto.id}">✕</button>

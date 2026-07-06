@@ -11,12 +11,19 @@
 <body>
     <main>
         <section>
+            <div class="boton-tema">
+                <label class="switch-label">
+                    <input type="checkbox" class="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
             <div class="bienvenida"> 
                 <div>
                     <img id="Logo" src="assets\images\logo\takana.png" alt="Logo TAKANA DRINKS">
                 </div>
                 <div>
                     <h2 class="titulo">Bienvenido, ingrese su nombre</h2>
+                    <h2 id="mensaje-error" class="mensaje-error" style="display: none;"> Debe ingresar su nombre para continuar</h2>
                     <div class="formulario-inicio">
                         <input type="text" id="nombre-cliente" placeholder="Nombre">
                         <button class="btn-primario" id="btn-ingresar">Ingresar</button>

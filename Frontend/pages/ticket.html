@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="icon" href="assets/images/icons/estrella.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/images/icons/estrella.ico" type="image/x-icon">
 
     <title>TAKANA - Comprobante</title>
 </head>
@@ -23,23 +23,19 @@
     </header>
 
     <main>
-        <section class="informacion-compra">
+        <section class="seccion-ticket">
             <h2 class="titulo-ticket">Comprobante</h2>
 
-            <div class="informacion-cliente">
+            <div class="informacion-compra">
                 <p id="nombre-cliente"></p>
                 <p id="fecha-compra"></p>
                 <p id="hora-compra"></p>
-            </div>
+                
+                <ul id="lista-ticket"></ul>
 
-            <div id="contenedor-ticket">
-                <ul id="lista-ticket">
-                    <!--Productos por agregar-->
-                </ul>
-            </div>
-            <div class="resumen-ticket">
-                <p id="subtotal-ticket">Subtotal: $0</p>
-                <p id="total-ticket">Total: $0</p>
+                <div class="resumen-ticket">
+                    <p id="total-ticket">Total: $0</p>
+                </div>
             </div>
             <div class="botones-ticket">
                 <button class="btn-secundario" id="btn-descargar-pdf">Descargar PDF</button>
