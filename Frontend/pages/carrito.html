@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="icon" href="assets/images/icons/estrella.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/images/icons/estrella.ico" type="image/x-icon">
     <title>TAKANA - Carrito</title>
 </head>
 <body>
@@ -26,13 +26,10 @@
             <h2 class="titulo-carrito">Carrito de compras</h2>
 
             <div id="contenedor-carrito">
-                <ul id="lista-carrito">
-                    <!-- Aca irian los productos que se vayan agrefando -->
-                </ul>
+                <ul id="lista-carrito"></ul>
             </div>
 
             <div class="resumen-carrito">
-                <p id="subtotal">Subtotal: $0</p>
                 <p id="total">Total: $0</p>
             </div>
 
@@ -54,6 +51,14 @@
             <div class="modal-botones">
                 <button class="btn-primario" id="btn-confirmar-modal">Confirmar</button>
                 <button class="btn-secundario" id="btn-cancelar-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-vacio" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3>Debes agregar productos para continuar</h3>
+            <div class="modal-botones">
+                <button class="btn-primario" id="btn-aceptar-modal">Aceptar</button>
             </div>
         </div>
     </div>

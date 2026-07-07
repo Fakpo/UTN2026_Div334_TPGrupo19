@@ -3,15 +3,16 @@ import { guardarNombre } from "../services/storage.js";
 window.addEventListener("DOMContentLoaded", () =>{
     const btnIngresar = document.getElementById("btn-ingresar");
     const inputNombre = document.getElementById("nombre-cliente");
+    const mensajeError = document.getElementById("mensaje-error");
 
     const ingresar = () => {
         const nombre = inputNombre.value.trim();
 
         if(nombre === ""){
-            alert("Ingrese su nombre para continuar.");
+            mensajeError.style.display = "block";
             return
         }
-
+        mensajeError.style.display = "none";
         guardarNombre(nombre)
         window.location.href = "pages/productos.html";
     };
@@ -19,8 +20,10 @@ window.addEventListener("DOMContentLoaded", () =>{
     btnIngresar.addEventListener("click", ingresar)
 
     //ENTER = INGRESAR
-    inputNombre.addEventListener("keydown", (e) => {
-        if(e.key === "Enter") ingresar;
+    window.addEventListener("keydown", (e) => {
+        if(e.key === "Enter"){
+            ingresar();
+        } 
     });
 
 });

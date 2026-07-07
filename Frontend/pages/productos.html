@@ -16,7 +16,6 @@
                 <a href="../index.html">Inicio</a>
                 <a href="productos.html">Productos</a>
                 <a href="carrito.html">Carrito</a>
-                </li>
             </ul>
         </nav>
         <button class="btn-terciario btn-admin" onclick="window.location.href='/* RUTA LOCAL HOST */'">Admin</button>
@@ -26,54 +25,16 @@
         <h2 class="separador">ELIGE CON QUE DISFRUTARAS ESTA NOCHE</h2>
 
         <div class="categoria-productos">
-            <button class="btn-primario" id="btn-filtro-bebidas">Bebidas</button>
-            <button class="btn-secundario" id="btn-filtro-hielo">Hielo</button>
+            <button class="btn-primario" id="btn-filtro-tragos">tragos</button>
+            <button class="btn-secundario" id="btn-filtro-extras">extras</button>
         </div>
 
-        <section id="bebidas">
-            <ul id="listado-bebidas">
-                <li class="li-bebidas">
-                    <img class="img-producto" src="../assets/images/productos/lataSmirnoff.png" alt="lataSmirnoff">
-                    <h3 class="nombre-producto">Smirnoff</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-                <li class="li-bebidas">
-                    <img class="img-producto" src="../assets/images/productos/lataCocaCola.png" alt="lataCocaCola">
-                    <h3 class="nombre-producto">Coca Cola</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-                <li class="li-bebidas">
-                    <img class="img-producto" src="../assets/images/productos/lataMonster.png" alt="lataMonster">
-                    <h3 class="nombre-producto">Monster</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-                <li class="li-bebidas">
-                    <img class="img-producto" src="../assets/images/productos/lataMonsterBlanca.png" alt="lataMonsterBlanca">
-                    <h3 class="nombre-producto">Monster Blanca</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-                <li class="li-bebidas">
-                    <img class="img-producto" src="../assets/images/productos/lataSprite.png" alt="lataSprite">
-                    <h3 class="nombre-producto">Sprite</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-            </ul>
+        <section id="tragos">
+            <ul id="listado-tragos"></ul>
         </section>
 
-        <section id="hielo">
-            <ul id="listado-hielo">
-                <li class="li-hielo">
-                    <img class="img-producto" src="../assets/images/productos/bolsaHielo.png" alt="bolsaHielo">
-                    <h3 class="nombre-producto">Bolsa de Hielo</h3>
-                    <p class="precio-producto">$100</p>
-                    <button class="btn-primario agregar-carrito">Agregar al carrito</button>
-                </li>
-            </ul>
+        <section id="extras">
+            <ul id="listado-extras"></ul>
         </section>
     </main>
     <footer>

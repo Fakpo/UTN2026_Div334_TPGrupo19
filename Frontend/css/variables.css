@@ -30,7 +30,7 @@
     --tamaño-base: 16px;
     --tamaño-titulo: 2.5rem;
     --tamaño-subtitulo: 1.5rem;
-    --tamaño-texto: 1rem;
+    --tamaño-texto: 1.5 rem;
 
 /* Bordes */
     --radio-borde: 10px;
@@ -44,4 +44,5 @@ body.tema-claro {
     --color-texto: #1a1a1a;
     --color-primario: #E8A0B4;
     --color-terciario: #D4607A;
+    --color-fondo-card: #e0e0e0;
     }

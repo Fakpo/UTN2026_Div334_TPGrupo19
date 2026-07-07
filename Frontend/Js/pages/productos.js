@@ -4,23 +4,23 @@ import { fetchProductos } from "../services/api.js";
 
 //------ESTADO-------
 let todosLosProductos = [];
-let categoriaActiva = 1;
+let categoriaActiva = "tragos";
 let paginaActual = 1;
-const PRODUCTOS_POR_PAGINA = 4;
+const PRODUCTOS_POR_PAGINA = 8;
 
 //--------ELEMENTOS DOM-------
-const listaBebidas = document.getElementById("listado-bebidas");
-const listaHielo = document.getElementById("listado-hielo");
-const secBebidas = document.getElementById("bebidas")
-const secHielo = document.getElementById("hielo")
-const btnBebidas = document.getElementById("btn-filtro-bebidas");
-const btnHielo = document.getElementById("btn-filtro-hielo");
+const listaTragos = document.getElementById("listado-tragos");
+const listaExtras = document.getElementById("listado-extras");
+const secTragos = document.getElementById("tragos")
+const secExtras = document.getElementById("extras")
+const btnTragos = document.getElementById("btn-filtro-tragos");
+const btnExtras = document.getElementById("btn-filtro-extras");
 const contenedorPaginacion = document.getElementById("paginacion");
 
 //-----------CARGA PRODUCTS---------
 const cargaProductos = async () => {
     try{
-        const data = await fetchProductos("http://localhost:300/api/products");
+        const data = await fetchProductos();
         todosLosProductos = data.productos;
     }catch (Error){
         //SI EL BACK AUN NO ESTA SE USA LOS HARCODEADO
@@ -44,12 +44,12 @@ const renderizar = () => {
     const paginados = filtrados.slice(inicio,inicio + PRODUCTOS_POR_PAGINA);
 
     //--RENDERIZA SEGUN LISTA--
-    const lista = categoriaActiva === "bebidas" ? listaBebidas : listaHielo;
+    const lista = categoriaActiva === "tragos" ? listaTragos : listaExtras;
     lista.innerHTML = "";
 
     paginados.forEach((producto) => {
         const li = document.createElement("li");
-        li.classList.add(categoriaActiva === "bebidas" ? "li-bebidas" : "li-hielo");
+        li.classList.add(categoriaActiva === "tragos" ? "li-tragos" : "li-extras");
         li.innerHTML = `
             <img class="img-producto" src="${producto.imagen}" alt="${producto.nombre}">
             <h3 class="nombre-producto">${producto.nombre}</h3>
@@ -71,7 +71,7 @@ const renderizar = () => {
             setTimeout(() => {
                 btn.textContent = "Agregar al carrito";
                 btn.disabled = false;
-            },1000);
+            },660);
         });
     });
 
@@ -102,12 +102,12 @@ const mostrarCategoria = (categoria) => {
     paginaActual = 1;
 
     //MUESTRA/OCULTA SECCIONES
-    secBebidas.style.display = categoria === "bebidas" ? "block" : "none";
-    secHielo.style.display = categoria === "hielo" ? "block" : "none";
+    secTragos.style.display = categoria === "tragos" ? "block" : "none";
+    secExtras.style.display = categoria === "extras" ? "block" : "none";
 
     //CAMBIA ESTILO BTN ACT/INAC
-    btnBebidas.className = categoria === "bebidas" ? "btn-primario" : "btn-secundario";
-    btnHielo.className = categoria === "hielo" ? "btn-primario" : "btn-secundario";
+    btnTragos.className = categoria === "tragos" ? "btn-primario" : "btn-secundario";
+    btnExtras.className = categoria === "extras" ? "btn-primario" : "btn-secundario";
 
     renderizar();
 };
@@ -116,9 +116,9 @@ const mostrarCategoria = (categoria) => {
 //INIT
 
 window.addEventListener("DOMContentLoaded", () => {
-    btnBebidas.addEventListener("click" , () => mostrarCategoria("bebidas"));
-    btnHielo.addEventListener("click" , () => mostrarCategoria("hielo"));
+    btnTragos.addEventListener("click" , () => mostrarCategoria("tragos"));
+    btnExtras.addEventListener("click" , () => mostrarCategoria("extras"));
     
-    mostrarCategoria("bebidas"); //Arranca mostrando las bebidas
+    mostrarCategoria("tragos"); //Arranca mostrando las tragos
     cargaProductos();
 })
