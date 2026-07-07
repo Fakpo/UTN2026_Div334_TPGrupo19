@@ -3,6 +3,9 @@ import { getDashboard, indexDashboard, changeDashboard, createDashboard } from "
 
 const router = Router();
 
-router.get("/dashboard", indexDashboard);
+router.get("/", indexDashboard);
+router.get("/get", getDashboard);
+router.get("/post", createDashboard);
+router.get("/put", changeDashboard);
 
 export default router;

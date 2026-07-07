@@ -1,6 +1,6 @@
-async function obtenerProductos() {
+export async function obtenerProductos() {
     try {
-        const respuesta = await fetch("http://localhost:3000/api/products");
+        const respuesta = await fetch("http://localhost:3000/api/products/active");
         
         if (!respuesta.ok) {
             throw new Error(`Error en la petición: ${respuesta.status}`);
@@ -12,6 +12,7 @@ async function obtenerProductos() {
 
         return productos
     } catch (error) {
-        console.error("Hubo un problema al traer los productos:", error);
+        // console.error("Hubo un problema al traer los productos:", error);
+        console.log("f")
     }
 }

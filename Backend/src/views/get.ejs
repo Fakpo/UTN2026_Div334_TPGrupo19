@@ -1,5 +1,21 @@
-<%-  include("partials/head.ejs") %> 
+<%- include("partials/head.ejs") %>
 <%- include("partials/nav.ejs") %>
-<%=  %>
-
+<main>
+    <section>
+        <ul class="listado-tragos">
+        <% if (productosArray && productosArray.length > 0) { %>
+            <% productosArray.forEach(producto => { %>
+            
+            <li class="li-tragos">
+                <img class="img-producto" src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+                <h3 class="nombre-producto"><%= producto.nombre %></h3>
+                <p class="precio-producto">$<%= producto.precio %></p>
+            </li>
+            <% }); %>
+        <% } else { %>
+            <p>No hay productos activos para mostrar.</p>
+        <% } %>
+        </ul>
+    </section>
+</main>
 <%- include("partials/footer.ejs") %>

@@ -94,17 +94,17 @@ export const createProduct = async (req, res) => {
 
         const nombreLimpio = nombre.trim();
 
-        const { rows } = await insertProduct(nombreLimpio, imagen, categoria, precio, estadoActivo);
+        const sql = await insertProduct(nombreLimpio, imagen, categoria, precio, estadoActivo);
 
-const { rows } = await conecction.query(sql, [nombre , descripcion , imagen , categoria, precio, estadoActivo]);
+        const { rows } = await conecction.query(sql);
 
-res.status(201).json({
-message: "Producto creado con exito",
-productId: rows.instertId
-});
-} catch (error) {
-console.log("Error al conectar con la base de datos" , error);
-};
+        res.status(201).json({
+            message: "Producto creado con exito",
+            productId: rows.instertId
+    });
+    } catch (error) {
+        console.log("Error al conectar con la base de datos" , error);
+    };
 };
 
 export const modifyProduct = async(req,res) =>{
