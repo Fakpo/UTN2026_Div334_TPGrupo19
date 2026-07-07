@@ -1,0 +1,10 @@
+<%-  include("partials/head.ejs") %> 
+<%- include("partials/nav.ejs") %>
+`
+<img class="img-producto" src="${producto.imagen}" alt="${producto.nombre}">
+<h3 class="nombre-producto">${producto.nombre}</h3>
+<p class="precio-producto">$${producto.precio}</p>
+<button class="btn-primario agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
+`
+
+<%- include("partials/footer.ejs") %>

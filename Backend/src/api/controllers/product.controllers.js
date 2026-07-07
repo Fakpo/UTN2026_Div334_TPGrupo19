@@ -1,5 +1,5 @@
 //EXPORTS
-import { selectAllProducts, insertProduct, updateProduct, selectProductsById, deleteProduct} from "../controllers/product.models.js";
+import { selectAllProducts, insertProduct, updateProduct, selectProductsById, deleteProduct, selectAllProductsWhereActive} from "../controllers/product.models.js";
 
 
 //controladores
@@ -28,6 +28,32 @@ export const getAllProducts = async(req,res) => {
         });
     };
 };
+
+export const getAllActiveProductsWhereActive = async(req,res) => {
+    try {
+        // El front tiene q apuntar a esta url y leer ese json
+        const [rows] = await selectAllProductsWhereActive();
+        console.log(rows);
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "No se encontraron Productos"
+            });
+        }
+        res.status(200).json({
+            // total: rows.length(),
+            payload: rows
+        });
+
+    } catch (error){
+        console.log("Error obteniendo Prductos", error);
+
+        res.status(500).json({
+            message: "Error interno al obtener los productos"
+        });
+    };
+};
+
 
 export const getProductById = async(req,res) => {
     try{

@@ -5,6 +5,11 @@ const selectAllProducts = () => {
     return conecction.query(sql);
 };
 
+const selectAllProductsWhereActive = () => {
+    const sql = "SELECT id, nombre, imagen, precio, estadoActivo FROM productos WHERE estadoActivo = True";
+    return conecction.query(sql);
+}
+
 const selectProductsById = (id) => {
     const sql = "SELECT id, nombre, descripcion, imagen, precio, estadoActivo FROM productos where productos.id = ?";
     return conecction.query(sql, [id]);
@@ -30,5 +35,6 @@ export {
     selectProductsById,
     insertProduct,
     updateProduct,
-    deleteProduct
-}
+    deleteProduct,
+    selectAllProductsWhereActive
+};
