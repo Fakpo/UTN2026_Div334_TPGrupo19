@@ -94,9 +94,7 @@ export const createProduct = async (req, res) => {
 
         const nombreLimpio = nombre.trim();
 
-        const sql = await insertProduct(nombreLimpio, imagen, categoria, precio, estadoActivo);
-
-        const { rows } = await conecction.query(sql);
+        const { rows } = await insertProduct(nombre, imagen , categoria, precio, estadoActivo)
 
         res.status(201).json({
             message: "Producto creado con exito",

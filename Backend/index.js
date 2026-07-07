@@ -4,7 +4,7 @@ import session from "express-session"
 import enviroments from "./src/api/config/enviroments.js";
 import {loggerURL} from './src/api/middlewares/middlewares.js';
 import { __dirname , join } from "./src/api/utils/index.js"; // Para armar las rutas de archivos
-import { productRoutes, authRoutes, viewRoutes, userRoutes, dashboardRoutes} from "./src/api/routes/index.js";
+import { productRoutes, authRoutes, viewRoutes, userRoutes} from "./src/api/routes/index.js";
 
 
 const {port, session_key} = enviroments;
@@ -39,7 +39,6 @@ app.use("/api/usuarios", userRoutes )
 app.use("/login",authRoutes);
 app.use("/login",viewRoutes);
 
-app.use("/dashboard", dashboardRoutes );
 //listener
 app.listen(port, () => {
     console.log("servidor corriendo en el puerto", port);
