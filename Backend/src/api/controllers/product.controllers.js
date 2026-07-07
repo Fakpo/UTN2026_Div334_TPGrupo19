@@ -1,5 +1,5 @@
 //EXPORTS
-import conecction from "../database/db.js";
+import { selectAllProducts, insertProduct, updateProduct, selectProductsById, deleteProduct, selectAllProductsWhereActive} from "../models/product.models.js";
 
 
 //controladores
@@ -7,9 +7,7 @@ import conecction from "../database/db.js";
 export const getAllProducts = async(req,res) => {
     try {
         // El front tiene q apuntar a esta url y leer ese json
-        const sql = "SELECT id, nombre, imagen, precio, estadoActivo FROM productos";
-
-        const [rows] = await conecction.query(sql);
+        const [rows] = await selectAllProducts();
         console.log(rows);
 
         if (rows.length === 0) {
@@ -31,12 +29,35 @@ export const getAllProducts = async(req,res) => {
     };
 };
 
+export const getAllActiveProductsWhereActive = async(req,res) => {
+    try {
+        // El front tiene q apuntar a esta url y leer ese json
+        const [rows] = await selectAllProductsWhereActive();
+        console.log(rows);
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "No se encontraron Productos"
+            });
+        }
+        res.status(200).json({
+            // total: rows.length(),
+            payload: rows
+        });
+
+    } catch (error){
+        console.log("Error obteniendo Prductos", error);
+
+        res.status(500).json({
+            message: "Error interno al obtener los productos"
+        });
+    };
+};
+
+
 export const getProductById = async(req,res) => {
     try{
-        // const { id } = req.params; // SAME const id = req.params.id;
-
-        const sql = "SELECT id, nombre, descripcion, imagen, precio, estadoActivo FROM productos where productos.id = ?";
-        const [rows] = await conecction.query(sql, [req.id]);
+        const [rows] = await selectProductsById(req.id);
 
         // console.log(rows);
 
@@ -60,46 +81,44 @@ export const getProductById = async(req,res) => {
 };
 
 export const createProduct = async (req, res) => {
-try {
-console.log(req.body);
+    try {
+        console.log(req.body);
 
-const {nombre , descripcion, imagen , categoria, precio, estadoActivo} = req.body;
+        const {nombre, imagen , categoria, precio, estadoActivo} = req.body;
 
-if (!name || !image || !category || !price) {
-return res.status(400).json({
-message: "datos invalidos, asegurate de incluir todas las columnas"
-});
-}
+        if (!nombre || !imagen || !categoria || !precio || !estadoActivo) {
+            return res.status(400).json({
+            message: "datos invalidos, asegurate de incluir todas las columnas"
+        });
+        };
 
-const nombreLimpio = nombre.trim();
+        const nombreLimpio = nombre.trim();
 
-const sql = `INSERT INTO productos (nombreLimpio, descripcion, imagen, categoria, precio, estadoActivo) VALUES ( ? ,?, ? , ? , ? ,?)`;
+        const { rows } = await insertProduct(nombreLimpio, imagen, categoria, precio, estadoActivo);
 
-const { rows } = await conecction.query(sql, [nombre , descripcion , imagen , categoria, precio, estadoActivo]);
-
-res.status(201).json({
-message: "Producto creado con exito",
-productId: rows.instertId
-});
-} catch (error) {
-console.log("Error al conetar con la base de datos" , error);
-};
+        res.status(201).json({
+        message: "Producto creado con exito",
+        productId: rows.instertId
+        });
+    } catch (error) {
+        console.log("Error al conetar con la base de datos" , error);
+    };
 };
 
 export const modifyProduct = async(req,res) =>{
     try {
         
-        const {id,nombre , descripcion, imagen , categoria, precio, estadoActivo } = req.body;
+        const {id,nombre, imagen , categoria, precio, estadoActivo } = req.body;
 
-        if (!name || !image || !category || !price) {
+        if (!nombre || !imagen || !categoria || !precio || !estadoActivo) {
             return res.status(400).json({
                 message: "datos invalidos, asegurate de incluir todas las columnas"
             });
         }
 
-        const sql = "UPDATE productos SET nombre = ?, descripcion = ?, imagen = ?, categoria = ?, precio = ?, estadoActivo = ? WHERE id = ?"
+        const nombreLimpio = nombre.trim();
 
-        const { result } = await conecction.query(sql,[nombre,descripcion,imagen,categoria,precio,,estadoActivo,id]);
+        const { result } = await updateProduct(id, nombreLimpio, imagen, categoria, precio, estadoActivo);
 
         if (result.affectedRows === 0 ) {
             return res.status(404).json({
@@ -108,9 +127,7 @@ export const modifyProduct = async(req,res) =>{
         }
         res.status(200).json({
             message: "Producto con id actualizado correctamente"
-        });
-
-        
+        });   
     } catch (error) {
         console.log(error);
     };
@@ -119,8 +136,7 @@ export const modifyProduct = async(req,res) =>{
 export const removeProduct = async(req,res) => {
     // const { id } = req.params;
     try {
-        const sql = "DELETE FROM productos WHERE id = ? "
-        await conecction.query(sql, [req.id]);
+        await deleteProduct(req.id);
 
         res.status(200).json({
             message: `producto con id: ${req.id} Eliminado`
