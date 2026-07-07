@@ -1,20 +1,21 @@
 //CAMBIOS DE TEMA CLARO / OSCURO
-export const iniciartema = () =>{
+export const iniciarTema = () =>{
+    const checkbox = document.querySelector(".checkbox");
+    if (!checkbox) return;
+
     const temaGuardado = localStorage.getItem("tema");
     if(temaGuardado === "claro"){
         document.body.classList.add("tema-claro");
+        checkbox.checked = true;
     }
 
-    const btn = document.getElementById("btn-tema");
-    if (!btn) return;
-
-    //Actualiza el text del boton segun tema
-    btn.textContent = document.body.classList.contains("tema-claro") ? "Oscuro" : "Claro";
-
-    btn.addEventListener("click", () =>{
-        document.body.classList.toggle("tema-claro")
-        const temaActual = document.body.classList.contains("tema-claro") ? "Claro" : "Oscuro"
-        localStorage.setItem("tema", temaActual); //queda guardado cuando se recarga
-        btn.textContent = temaActual === "Claro" ? "Oscuro" : "Claro"
+    checkbox.addEventListener("change", () =>{  //Cambia los temas
+        if (checkbox.checked) {
+            document.body.classList.add("tema-claro");
+            localStorage.setItem("tema", "claro");
+        } else {
+            document.body.classList.remove("tema-claro");
+            localStorage.setItem("tema", "oscuro");
+        }
     })
 }

@@ -1,6 +1,6 @@
 import { obtenerCarrito , obtenerNombre , resetCarrito } from "../services/storage.js";
 import { registrarVenta } from "../services/api.js";
-import { iniciartema } from "../services/tema.js";
+import { iniciarTema } from "../services/tema.js";
 
 //--ELEMENTOS DEL DOM---
 const pNombre      = document.getElementById("nombre-cliente");
@@ -64,7 +64,53 @@ const registrar = async (total) => {
 
 //--DESCARGA PDF--
 const descargarPDF = ()=>{
-    window.print();
+    const {jsPDF} = window.jspdf;
+    const doc = new jsPDF();
+
+    const textNombre    = document.getElementById("nombre-cliente").textContent;
+    const fecha     = document.getElementById("fecha-compra").textContent;
+    const hora      = document.getElementById("hora-compra").textContent;
+    const total     = document.getElementById("total-ticket").textContent;
+    const items     = document.querySelectorAll(".item-ticket");
+
+    let y = 20;
+
+    doc.setFontSize(20);
+    doc.text("TAKANA DRINKS", 105 , y , {align: "center"});
+    y += 10;
+    
+    //SEPARADOR
+    doc.setLineWidth(0.5);
+    doc.line(20, y ,190 , y);
+    y += 10;
+
+    //DATOS CLIENTE
+    doc.setFontSize(12);
+    doc.text(textNombre, 20, y); y += 8;
+    doc.text(fecha, 20, y); y += 8;
+    doc.text(hora, 20, y); y += 12;
+
+    //SEPARADOR
+    doc.line(20, y , 190, y); y +=10;
+
+    //PRODUCTOS
+    doc.setFontSize(11);
+    items.forEach((item) => {
+        const partes = item.querySelectorAll("span");
+        if (partes.length >= 2){
+            doc.text(partes[0].textContent,20,y)
+            doc.text(partes[1].textContent,170,y, {align: "right"});
+            y += 8;
+        }
+    });
+
+    //TOTAL
+    y += 4;
+    doc.line(20,y,190,y); y += 10;
+    doc.setFontSize(13);
+    doc.text(total,170,y,{align: "right"});
+
+    doc.save("ticket-takana.pdf")
 };
 
 //--FINALIZO Y RESET--
@@ -74,10 +120,10 @@ btnFinalizar.addEventListener("click",() =>{
 });
 
 btnPDF.addEventListener("click", descargarPDF);
- 
+
 //--INIT--
 window.addEventListener("DOMContentLoaded", async () =>{
-    iniciartema();
-    const subtotal = renderTicket();
-    await registrar(subtotal);
+    iniciarTema();
+    const total = renderTicket();
+    await registrar(total);
 });

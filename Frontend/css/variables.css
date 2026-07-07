@@ -39,10 +39,15 @@
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }   
 
-body.tema-claro {
+body.tema-claro{
     --color-fondo: #F5F5F5;
     --color-texto: #1a1a1a;
     --color-primario: #E8A0B4;
     --color-terciario: #D4607A;
     --color-fondo-card: #e0e0e0;
     }
+
+body.tema-claro .switch-label{
+    background-color: #999;
+    border-color: #999;
+}
