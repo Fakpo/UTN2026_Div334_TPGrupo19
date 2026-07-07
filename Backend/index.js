@@ -2,17 +2,13 @@ import express from "express";
 import enviroments from "./src/api/config/enviroments.js";
 import cors from "cors";
 import {loggerURL} from './src/api/middlewares/middlewares.js';
-import path, { dirname , join } from "path"; // Para armar las rutas de archivos
-import { fileURLToPath } from "url";
 import { productRoutes } from "./src/api/routes/index.js";
+import path, { join } from "path"; // Para armar las rutas de archivos
+import { __dirname } from "./src/api/utils/index.js";
 
 
 const app= express();
 const port = enviroments.port;
-
-//Conexion front
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.set("view engine", "ejs");
 app.set("views" , join(__dirname, "../Backend/src/views"))
