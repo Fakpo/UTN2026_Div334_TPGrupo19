@@ -1,0 +1,143 @@
+<body>
+    <main class="login-page">
+        <form class="form" action="/login" method="post">   
+            <p class="header">TAKANA ADMIN</p>
+
+            <% if (typeof error !== "undefined" && error) { %>
+                <p class="login-error"><%= error %></p>
+            <% } %>
+            <input 
+                class="input" placeholder="Email" type="email" name="email" id="email" required>
+
+            <input 
+                class="input"
+                placeholder="Contraseña"
+                type="password"
+                name="password"
+                id="password"
+                required>
+            
+            <button type="submit" class="btn">Ingresar</button>
+
+            <button
+                type="button"
+                class="btn btn-rapido"
+                onclick= "document.getElementById('email').value='admin@takana.com'; document.getElementById('password').value='latimba';">
+                Acceso (OnlyPROF)
+            </button>
+
+        </form>
+
+    </main>
+    <% include("./partials/footer.ejs") %>
+
+</body>
+
+<style>
+    .login-page {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-fondo);
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: white;
+        padding: 2.5em;
+        border-radius: 25px;
+        transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+        min-width: 320px;
+    }
+
+    .form:hover {
+        transform: translateX(-0.5em) translateY(-0.5em);
+        border: 1px solid #171717;
+        box-shadow: 10px 10px 0px #666666;
+    }
+
+    .heading {
+        color: var(--color-primario);
+        padding-bottom: 1em;
+        text-align: center;
+        font-weight: bold;
+        font-family: var(--fuente-principal);
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .input {
+        border-radius: 5px;
+        border: 1px solid whitesmoke;
+        background-color: whitesmoke;
+        outline: none;
+        padding: 0.7em;
+        transition: .4s ease-in-out;
+        font-size: 1rem;
+    }
+
+    .input:hover {
+        box-shadow: 6px 6px 0px #969696, -3px -3px 10px #ffffff;
+    }
+
+    .input:focus {
+        background: #ffffff;
+        box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .form .btn {
+        margin-top: 1em;
+        align-self: center;
+        padding: 0.7em 1.5em;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: var(--color-primario);
+        font-family: var(--fuente-principal);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+        width: 100%;
+    }
+
+    .form .btn:hover {
+        box-shadow: 6px 6px 0px #969696, -3px -3px 10px #ffffff;
+        transform: translateX(-0.5em) translateY(-0.5em);
+    }
+
+    .form .btn:active {
+        transition: .2s;
+        transform: translateX(0em) translateY(0em);
+        box-shadow: none;
+    }
+
+    /* Boton acceso para profesores*/
+    .btn-rapido {
+        background-color: transparent !important;
+        color: #999 !important;
+        border: 1px solid #ddd !important;
+        font-size: 0.8rem !important;
+        margin-top: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .btn-rapido:hover {
+        background-color: #f5f5f5 !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .login-error {
+        color: var(--color-primario);
+        text-align: center;
+        font-size: 0.9rem;
+        background-color: #ffe0e0;
+        padding: 8px;
+        border-radius: 5px;
+    }
+</style>

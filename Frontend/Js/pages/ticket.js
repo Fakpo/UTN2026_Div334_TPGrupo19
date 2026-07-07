@@ -1,5 +1,6 @@
 import { obtenerCarrito , obtenerNombre , resetCarrito } from "../services/storage.js";
 import { registrarVenta } from "../services/api.js";
+import { iniciartema } from "../services/tema.js";
 
 //--ELEMENTOS DEL DOM---
 const pNombre      = document.getElementById("nombre-cliente");
@@ -76,6 +77,7 @@ btnPDF.addEventListener("click", descargarPDF);
  
 //--INIT--
 window.addEventListener("DOMContentLoaded", async () =>{
+    iniciartema();
     const subtotal = renderTicket();
     await registrar(subtotal);
 });
