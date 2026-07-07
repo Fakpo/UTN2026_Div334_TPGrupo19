@@ -75,7 +75,7 @@ export const getProductById = async(req,res) => {
         console.log("Error Obteniendo producto por id", error.message );
 
         res.status(500).json({
-            error: "Error inerno al obtener prodcuto con id"
+            error: "Error interno al obtener producto con id"
         });
     }
 };
@@ -96,13 +96,15 @@ export const createProduct = async (req, res) => {
 
         const { rows } = await insertProduct(nombreLimpio, imagen, categoria, precio, estadoActivo);
 
-        res.status(201).json({
-        message: "Producto creado con exito",
-        productId: rows.instertId
-        });
-    } catch (error) {
-        console.log("Error al conetar con la base de datos" , error);
-    };
+const { rows } = await conecction.query(sql, [nombre , descripcion , imagen , categoria, precio, estadoActivo]);
+
+res.status(201).json({
+message: "Producto creado con exito",
+productId: rows.instertId
+});
+} catch (error) {
+console.log("Error al conectar con la base de datos" , error);
+};
 };
 
 export const modifyProduct = async(req,res) =>{

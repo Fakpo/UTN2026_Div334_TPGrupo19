@@ -37,7 +37,6 @@ export const getAdminUser = async (req, res) => {
         }
 
         const user = rows[0];
-
         // Trae password del req.body comprueba si su hash es igual al de la DB
         const match = await bcrypt.compare(password, user.password);
 
@@ -48,7 +47,7 @@ export const getAdminUser = async (req, res) => {
                 nombre: user.name,
                 email: user.email
             }
-            res.redirect("/dashboard/index");
+            res.redirect("/dashboard");
         }else{
             return res.render("login", {
                 title: "Login Admin",
