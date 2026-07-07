@@ -1,18 +1,13 @@
 <body>
     <main class="login-page">
-        <form class="form" action="/login" method="POST">   
+        <form class="form" action="/login" method="post">   
             <p class="header">TAKANA ADMIN</p>
 
             <% if (typeof error !== "undefined" && error) { %>
                 <p class="login-error"><%= error %></p>
             <% } %>
             <input 
-                class="input" 
-                placeholder="Email" 
-                type="email" 
-                name="email" 
-                id="email"
-                required>
+                class="input" placeholder="Email" type="email" name="email" id="email" required>
 
             <input 
                 class="input"

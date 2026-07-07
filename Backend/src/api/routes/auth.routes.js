@@ -9,7 +9,7 @@ const router = Router()
 router.get("/", loginView);
 
 //OBTENER USUARIOS ADMIN
-router.post("/", getAdminUser);
+router.post("/",getAdminUser);
 
 //Cerrar sesion
 router.post("/logout", destroySession);
