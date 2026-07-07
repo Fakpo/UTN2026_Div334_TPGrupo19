@@ -5,7 +5,7 @@
         "descripcion": "Bebida alcoholica con sabor a limón",
         "precio": 1500,
         "imagen": "../assets/images/productos/lataSmirnoff.png",
-        "categoria": "bebidas",
+        "categoria": "tragos",
         "activo": true
     },
     {
@@ -14,7 +14,7 @@
         "descripcion": "Gaseosa clásica 350ml",
         "precio": 800,
         "imagen": "../assets/images/productos/lataCocacola.png",
-        "categoria": "bebidas",
+        "categoria": "tragos",
         "activo": true
     },
     {
@@ -23,7 +23,7 @@
         "descripcion": "Bebida energizante 473ml",
         "precio": 1200,
         "imagen": "../assets/images/productos/lataMonster.png",
-        "categoria": "bebidas",
+        "categoria": "tragos",
         "activo": true
     },
     {
@@ -32,7 +32,7 @@
         "descripcion": "Bebida energizante sabor mango 473ml",
         "precio": 1200,
         "imagen": "../assets/images/productos/lataMonsterBlanca.png",
-        "categoria": "bebidas",
+        "categoria": "tragos",
         "activo": true
     },
     {
@@ -41,7 +41,7 @@
         "descripcion": "Gaseosa lima limón 350ml",
         "precio": 800,
         "imagen": "../assets/images/productos/lataSprite.png",
-        "categoria": "bebidas",
+        "categoria": "tragos",
         "activo": true
     },
     {
@@ -50,7 +50,7 @@
         "descripcion": "Hielo en cubos 2kg",
         "precio": 600,
         "imagen": "../assets/images/productos/bolsaHielo.png",
-        "categoria": "hielo",
+        "categoria": "extras",
         "activo": true
     }
-]
+] 
