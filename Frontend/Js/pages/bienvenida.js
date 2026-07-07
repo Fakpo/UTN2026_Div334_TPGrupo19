@@ -20,8 +20,10 @@ window.addEventListener("DOMContentLoaded", () =>{
     btnIngresar.addEventListener("click", ingresar)
 
     //ENTER = INGRESAR
-    btnIngresar.addEventListener("keydown", (e) => {
-        if(e.key === "Enter") ingresar;
+    window.addEventListener("keydown", (e) => {
+        if(e.key === "Enter"){
+            ingresar();
+        } 
     });
 
 });

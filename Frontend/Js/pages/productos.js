@@ -71,7 +71,7 @@ const renderizar = () => {
             setTimeout(() => {
                 btn.textContent = "Agregar al carrito";
                 btn.disabled = false;
-            },1000);
+            },660);
         });
     });
 

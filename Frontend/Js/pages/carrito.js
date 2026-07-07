@@ -2,11 +2,12 @@ import {obtenerCarrito,actualizarCantidad,eliminarDelCarrito} from "../services/
 
 //-------ELEMENTOS DEL DOM----------
 const listarCarrito = document.getElementById("contenedor-carrito");
-const pSubtotal = document.getElementById("subtotal");
 const pTotal = document.getElementById("total");
 const btnSeguir = document.getElementById("btn-seguir-comprando");
 const btnFinalizar = document.getElementById("btn-finalizar-compra");
 const modal = document.getElementById("modal-confirmacion");
+const modalAlert = document.getElementById("modal-vacio")
+const btnAceptar = document.getElementById("btn-aceptar-modal")
 const btnConfirmar = document.getElementById("btn-confirmar-modal") 
 const btnCancelar = document.getElementById("btn-cancelar-modal") 
 
@@ -17,17 +18,16 @@ const renderizarCarrito = () => {
 
     if(carrito.length === 0){
         listarCarrito.innerHTML = `
-            <li style="text-align:center; padding:20px;">
-            Tu carrito está vacío.
+            <li style="text-align:center; padding:20px; font-size: 25px;">
+            Tu carrito esta vacio.
             </li>`;
-        pSubtotal.textContent = "Subtotal :$0";
         pTotal.textContent = "Total :$0";
         return;
     }
 
-    let subtotal = 0;
+    let total = 0;
     carrito.forEach((producto) => {
-        subtotal += producto.precio * producto.cantidad;
+        total += producto.precio * producto.cantidad;
         
         const li = document.createElement("li");
         li.classList.add("item-carrito");
@@ -44,8 +44,7 @@ const renderizarCarrito = () => {
         listarCarrito.appendChild(li);
     });
 
-    pSubtotal.textContent = `Subtotal :$${subtotal}`;
-    pTotal.textContent = `Total :$${subtotal}`;
+    pTotal.textContent = `Total :$${total}`;
 
     // EVENTOS CANTIDAD
     document.querySelectorAll(".btn-cantidad").forEach((btn) => {
@@ -54,17 +53,28 @@ const renderizarCarrito = () => {
             renderizarCarrito();
         });
     });
+    //EVENTO ELIMINAR
+    document.querySelectorAll(".btn-eliminar").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            eliminarDelCarrito(Number(btn.dataset.id));
+            renderizarCarrito();
+        })
+    });
 };
 
 //MODAL CONFIRMACION
 const confirmarCompra = () =>{
     const carrito = obtenerCarrito();
     if(carrito.length === 0){
-        alert("Tu carrito esta vacio, debes agregar productos")
+        modalAlert.style.display = "flex"
         return;
     }
     modal.style.display = "flex";
 };
+
+btnAceptar.addEventListener("click" , () =>{
+    modalAlert.style.display = "none"
+})
 
 btnConfirmar.addEventListener("click", () =>{
     modal.style.display = "none";

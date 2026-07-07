@@ -152,7 +152,7 @@ main{
 }
 
 .bienvenida{
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,7 +173,7 @@ main{
     margin-bottom: 20px;
 }
 
-#nombre-cliente{
+.box-nombre{
     width: 280px;
     padding: 12px;
     border-radius: var(--radio-borde);
@@ -365,11 +365,11 @@ a:hover{
 
 /* TICket */
 .seccion-ticket{
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px;
+    padding: 80px;
     gap: 20px;
 }
 
@@ -378,7 +378,7 @@ a:hover{
     border-radius: var(--radio-borde);
     padding: 24px;
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -388,6 +388,7 @@ a:hover{
 .informacion-cliente{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 #lista-ticket{
@@ -395,10 +396,9 @@ a:hover{
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-top: 12px;
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 2px solid var(--color-terciario);
-
+    
 }
 
 .titulo-ticket{
@@ -406,11 +406,13 @@ a:hover{
     text-align: center;
 }
 
-.item-ticket{
-    display: flex;
-    justify-content: space-between;
+.item-ticket {
+    display: grid;
+    grid-template-columns: 1fr 140px 60px;
+    align-items: center;
+    gap: 60px;
+    padding: 5px 0;
     font-size: var(--tamaño-texto);
-    padding: 6px 0;
     border-bottom: 1px solid var(--color-terciario);
 }
 
@@ -449,6 +451,7 @@ footer{
 .modal-box {
     background-color: var(--color-primario);
     border-radius: var(--radio-borde);
+    font-size: 20px;
     padding: 30px 40px;
     display: flex;
     flex-direction: column;
