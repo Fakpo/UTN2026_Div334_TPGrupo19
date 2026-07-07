@@ -1,18 +1,14 @@
 import express from "express";
-import enviroments from "./src/api/config/enviroments.js";
 import cors from "cors";
+import session from "express-session"
+import enviroments from "./src/api/config/enviroments.js";
 import {loggerURL} from './src/api/middlewares/middlewares.js';
-import path, { dirname , join } from "path"; // Para armar las rutas de archivos
-import { fileURLToPath } from "url";
-import { productRoutes } from "./src/api/routes/index.js";
+import { __dirname , join } from "./src/api/utils/index.js"; // Para armar las rutas de archivos
+import { productRoutes, authRoutes, viewRoutes, userRoutes} from "./src/api/routes/index.js";
 
 
+const {port, session_key} = enviroments;
 const app= express();
-const port = enviroments.port;
-
-//Conexion front
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.set("view engine", "ejs");
 app.set("views" , join(__dirname, "../Backend/src/views"))
@@ -25,19 +21,24 @@ app.use(loggerURL);
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "..", "Frontend")));
-// Endpoints 
+app.use(express.urlencoded({extended: true}))
 
-//get
-app.get("/" , (req,res) => {
-    res.send("hola mundo desde express")
-});
+app.use(express.static(join(__dirname, "..", "Frontend")));
+
+app.use(session({
+    secret: session_key,
+    resave: false,
+    saveUninitialized:true
+}))
+
+// Rutas
 
 app.use("/api/products", productRoutes )
+app.use("/api/usuarios", userRoutes )
 
-app.use( "/dashboard" , (req,res) => {
-    res.render("index")
-});
+app.use("/admin",authRoutes);
+app.use("/admin",viewRoutes);
+
 //listener
 app.listen(port, () => {
     console.log("servidor corriendo en el puerto", port);
