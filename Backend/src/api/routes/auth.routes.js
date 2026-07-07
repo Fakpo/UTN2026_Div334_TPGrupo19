@@ -6,10 +6,10 @@ import { loginView,getAdminUser, destroySession} from "../controllers/auth.contr
 const router = Router()
 
 //VISTA LOGIN
-router.get("/login", loginView);
+router.get("/", loginView);
 
 //OBTENER USUARIOS ADMIN
-router.post("/login", getAdminUser);
+router.post("/", getAdminUser);
 
 //Cerrar sesion
 router.post("/logout", destroySession);

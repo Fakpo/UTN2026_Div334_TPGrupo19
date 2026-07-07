@@ -36,8 +36,8 @@ app.use(session({
 app.use("/api/products", productRoutes )
 app.use("/api/usuarios", userRoutes )
 
-app.use("/admin",authRoutes);
-app.use("/admin",viewRoutes);
+app.use("/login",authRoutes);
+app.use("/login",viewRoutes);
 
 //listener
 app.listen(port, () => {
