@@ -1,5 +1,5 @@
 //EXPORTS
-import { selectAllProducts, insertProduct, updateProduct, selectProductsById, deleteProduct, selectAllProductsWhereActive} from "../controllers/product.models.js";
+import { selectAllProducts, insertProduct, updateProduct, selectProductsById, deleteProduct, selectAllProductsWhereActive} from "../models/product.models.js";
 
 
 //controladores
