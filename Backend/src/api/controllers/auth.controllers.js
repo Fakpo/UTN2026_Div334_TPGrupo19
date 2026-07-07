@@ -15,18 +15,19 @@ export const loginView = (req, res) => {
 //POST validacion credenciales bcrypt
 export const getAdminUser = async (req, res) => {
     try{
-        const {correo , contraseña} = req.body;
-
-        if (!correo, !contraseña) {
+        const {email , password} = req.body;
+        if (!email || !password) {
+            console.log ("no te estas en el body")
             return res.render("login", {
                 title: "Login",
                 about: "Introduci tu email y contraseña",
                 error: "Todos los campos son obligatorios"
             });
-        }
+        };
+        
         //BCRYPT busca solo por mail
-        const sql = "SELECT * FROM usuarios WHERE correo = ?";
-        const [rows] = await connection.query(sql, [correo]);
+        const sql = "SELECT * FROM usuarios WHERE correo = ? ";
+        const [rows] = await conecction.query(sql, [email]);
 
         if (rows.length === 0) {
             return res.render("login", {
@@ -36,19 +37,22 @@ export const getAdminUser = async (req, res) => {
             });
         }
 
+        console.log(rows);
         const user = rows[0];
         // Trae password del req.body comprueba si su hash es igual al de la DB
-        const match = await bcrypt.compare(password, user.password);
+        const match = await bcrypt.compare(password, user.contrasenia);
 
         if (match) {
             // Guardamos una sesion
             req.session.user = {
                 id: user.id,
-                nombre: user.name,
-                email: user.email
+                nombre: user.nombre,
+                email: user.correo
             }
-            res.redirect("/dashboard");
+            res.redirect("/login/index");
         }else{
+            console.log(password);
+            console.log(user.contrasenia);
             return res.render("login", {
                 title: "Login Admin",
                 about: "Introduci tu email y contraseña",
