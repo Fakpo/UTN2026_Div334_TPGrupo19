@@ -1,8 +1,8 @@
 import { guardarNombre } from "../services/storage.js";
-import { iniciartema } from "../services/tema.js";
+import { iniciarTema } from "../services/tema.js";
 
 window.addEventListener("DOMContentLoaded", () =>{
-    iniciartema();
+    iniciarTema();
     const btnIngresar = document.getElementById("btn-ingresar");
     const inputNombre = document.getElementById("nombre-cliente");
     const mensajeError = document.getElementById("mensaje-error");

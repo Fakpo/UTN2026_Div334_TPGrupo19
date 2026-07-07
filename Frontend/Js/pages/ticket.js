@@ -1,7 +1,6 @@
 import { obtenerCarrito , obtenerNombre , resetCarrito } from "../services/storage.js";
 import { registrarVenta } from "../services/api.js";
-import { iniciartema } from "../services/tema.js";
-import { text } from "express";
+import { iniciarTema } from "../services/tema.js";
 
 //--ELEMENTOS DEL DOM---
 const pNombre      = document.getElementById("nombre-cliente");
@@ -68,11 +67,11 @@ const descargarPDF = ()=>{
     const {jsPDF} = window.jspdf;
     const doc = new jsPDF();
 
-    const nombre    = document.getElementById("nombre-cliente").textContent;
+    const textNombre    = document.getElementById("nombre-cliente").textContent;
     const fecha     = document.getElementById("fecha-compra").textContent;
     const hora      = document.getElementById("hora-compra").textContent;
     const total     = document.getElementById("total-ticket").textContent;
-    const items     = document.querySelectorAll("lista-ticket");
+    const items     = document.querySelectorAll(".item-ticket");
 
     let y = 20;
 
@@ -87,9 +86,9 @@ const descargarPDF = ()=>{
 
     //DATOS CLIENTE
     doc.setFontSize(12);
-    doc-text(nombre, 20, y); y += 8;
-    doc-text(fecha, 20, y); y += 8;
-    doc-text(hora, 20, y); y += 12;
+    doc.text(textNombre, 20, y); y += 8;
+    doc.text(fecha, 20, y); y += 8;
+    doc.text(hora, 20, y); y += 12;
 
     //SEPARADOR
     doc.line(20, y , 190, y); y +=10;
@@ -124,7 +123,7 @@ btnPDF.addEventListener("click", descargarPDF);
 
 //--INIT--
 window.addEventListener("DOMContentLoaded", async () =>{
-    iniciartema();
-    const subtotal = renderTicket();
-    await registrar(subtotal);
+    iniciarTema();
+    const total = renderTicket();
+    await registrar(total);
 });

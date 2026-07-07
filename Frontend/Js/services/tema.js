@@ -1,5 +1,5 @@
 //CAMBIOS DE TEMA CLARO / OSCURO
-export const iniciartema = () =>{
+export const iniciarTema = () =>{
     const checkbox = document.querySelector(".checkbox");
     if (!checkbox) return;
 
