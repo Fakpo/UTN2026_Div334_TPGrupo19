@@ -7,7 +7,7 @@ import conecction from "../database/db.js";
 export const getAllProducts = async(req,res) => {
     try {
         // El front tiene q apuntar a esta url y leer ese json
-        const sql = "SELECT id, nombre, descripcion, imagen, precio, estadoActivo FROM productos";
+        const sql = "SELECT id, nombre, imagen, precio, estadoActivo FROM productos";
 
         const [rows] = await conecction.query(sql);
         console.log(rows);

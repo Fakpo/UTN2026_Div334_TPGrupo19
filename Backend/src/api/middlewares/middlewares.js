@@ -23,7 +23,7 @@ const validateId = (req,res,next) => {
     next();
 };
 
-const categoriasValidas = ["Trago","Bebida"];
+const categoriasValidas = ["tragos","extras"];
 const validateProduct = (req,res,next) =>  {
     const {nombre, categoria, precio} = req.body;
 
