@@ -1,6 +1,6 @@
 import { agregarAlCarrito } from "../services/storage.js";
 import { fetchProductos } from "../services/api.js";
-
+import { iniciartema } from "../services/tema.js";
 
 //------ESTADO-------
 let todosLosProductos = [];
@@ -116,6 +116,7 @@ const mostrarCategoria = (categoria) => {
 //INIT
 
 window.addEventListener("DOMContentLoaded", () => {
+    iniciartema();
     btnTragos.addEventListener("click" , () => mostrarCategoria("tragos"));
     btnExtras.addEventListener("click" , () => mostrarCategoria("extras"));
     
