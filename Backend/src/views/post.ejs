@@ -1,0 +1,40 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+<main>
+    <form id="formCrearProducto">
+        
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ej: Fernet Branca 1L">
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoría</label>
+            <select class="form-select" id="categoria" name="categoria" required>
+                <option value="" selected disabled>Seleccioná una categoría</option>
+                <option value="1">Tragos</option> <option value="2">Extras</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" required placeholder="Ej: fernet.png">
+        </div>
+
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" step="0.01" class="form-control" id="precio" name="precio" required placeholder="0.00">
+        </div>
+
+        <div class="mb-3">
+            <label for="estadoActivo" class="form-label">Estado del Producto</label>
+            <select class="form-select" id="estadoActivo" name="estadoActivo" required>
+                <option value="1">Activo (Visible en góndola)</option>
+                <option value="0">Inactivo (Oculto)</option>
+            </select>
+        </div>
+
+        <script src="../public/js/post.js"></script>
+        <button type="submit" class="btn btn-success w-100">Guardar Producto</button>
+</main>
+<%- include("partials/footer.ejs") %>

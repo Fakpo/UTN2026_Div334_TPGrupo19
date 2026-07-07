@@ -51,11 +51,17 @@ const validateProduct = (req,res,next) =>  {
     next();
 };
 
-
+const requireLogin = (req, res, next) => {
+    if (!req.session.user) {
+        return res.redirect("/login");
+    };
+    next();
+}
 
 
 export {
     loggerURL,
     validateId,
-    validateProduct
+    validateProduct,
+    requireLogin
 }

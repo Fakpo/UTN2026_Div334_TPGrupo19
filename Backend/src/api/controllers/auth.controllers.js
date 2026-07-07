@@ -15,9 +15,9 @@ export const loginView = (req, res) => {
 //POST validacion credenciales bcrypt
 export const getAdminUser = async (req, res) => {
     try{
-        const {email , password} = req.body;
+        const {correo , contraseña} = req.body;
 
-        if (!email, !password) {
+        if (!correo, !contraseña) {
             return res.render("login", {
                 title: "Login",
                 about: "Introduci tu email y contraseña",
@@ -25,8 +25,8 @@ export const getAdminUser = async (req, res) => {
             });
         }
         //BCRYPT busca solo por mail
-        const sql = "SELECT * FROM users WHERE email = ?";
-        const [rows] = await connection.query(sql, [email]);
+        const sql = "SELECT * FROM usuarios WHERE correo = ?";
+        const [rows] = await connection.query(sql, [correo]);
 
         if (rows.length === 0) {
             return res.render("login", {
