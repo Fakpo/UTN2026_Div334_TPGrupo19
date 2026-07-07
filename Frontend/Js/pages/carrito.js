@@ -1,4 +1,5 @@
 import {obtenerCarrito,actualizarCantidad,eliminarDelCarrito} from "../services/storage.js";
+import { iniciartema } from "../services/tema.js";
 
 //-------ELEMENTOS DEL DOM----------
 const listarCarrito = document.getElementById("contenedor-carrito");
@@ -95,4 +96,7 @@ btnSeguir.addEventListener("click",() => {
 btnFinalizar.addEventListener("click", confirmarCompra);
 
 //INIT
-window.addEventListener("DOMContentLoaded", renderizarCarrito);
+window.addEventListener("DOMContentLoaded", () =>{
+    iniciartema();
+    renderizarCarrito();
+});
