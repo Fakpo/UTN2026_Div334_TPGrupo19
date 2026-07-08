@@ -1,8 +1,8 @@
-const BASE_URL = "http://localhost:3000/api/products"
+const BASE_URL = "http://localhost:3000/api"
 
 //-----PRODUCTOS--------
 export const fetchProductos = async (pagina = 1, limite = 8) => {
-    const res = await fetch(`${BASE_URL}/productos?page=${pagina}&limit=${limite}`);
+    const res = await fetch(`${BASE_URL}/products/active`);
     if(!res.ok) throw new Error("Error al obtener productos:");
     const data = await res.json();
     return data.payload;

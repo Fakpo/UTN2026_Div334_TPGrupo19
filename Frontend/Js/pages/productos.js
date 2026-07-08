@@ -21,7 +21,7 @@ const contenedorPaginacion = document.getElementById("paginacion");
 const cargaProductos = async () => {
     try{
         const data = await fetchProductos();
-        todosLosProductos = data.productos;
+        todosLosProductos = data;
     }catch (Error){
         //SI EL BACK AUN NO ESTA SE USA LOS HARCODEADO
         console.warn("Backend no disponible,")

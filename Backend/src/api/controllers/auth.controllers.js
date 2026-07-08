@@ -14,6 +14,7 @@ export const loginView = (req, res) => {
 
 //POST validacion credenciales bcrypt
 export const getAdminUser = async (req, res) => {
+    console.log("BODY:" ,req.body)
     try{
         const {email , password} = req.body;
         if (!email || !password) {

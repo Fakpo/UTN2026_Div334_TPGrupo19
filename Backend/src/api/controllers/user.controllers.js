@@ -4,7 +4,7 @@ import { insertUsuario } from "../models/user.models.js";
 export const createAdminUser = async (req, res) => {
     try {
 
-        const { nombre, correo, contraseña } = req.body;
+        const { nombre, correo, contrasenia } = req.body;
 
         if (!nombre || !correo || !contraseña) {
             return res.status(400).json({

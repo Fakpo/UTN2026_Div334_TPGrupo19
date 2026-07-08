@@ -1,12 +1,12 @@
 import conecction from "../database/db.js";
 
 const selectAllProducts = () => {
-    const sql = "SELECT id, nombre, imagen, precio, estadoActivo FROM productos";
+    const sql = "SELECT id, nombre, imagen, precio, categoria, estadoActivo FROM productos";
     return conecction.query(sql);
 };
 
 const selectAllProductsWhereActive = () => {
-    const sql = "SELECT id, nombre, imagen, precio, estadoActivo FROM productos WHERE estadoActivo = True";
+    const sql = "SELECT id, nombre, imagen, precio, categoria, estadoActivo FROM productos WHERE estadoActivo = True";
     return conecction.query(sql);
 }
 
